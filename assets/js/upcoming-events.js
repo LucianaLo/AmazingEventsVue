@@ -22,7 +22,7 @@ createApp({
       .then(response => response.json())
       .then(data => {
 
-        this.dataEveents = data.events
+        this.dataEveents = data.events.filter(elemento => new Date(elemento.date) > new Date(data.currentDate))
         console.log(this.dataEveents)
         this.checkboxes = [...new Set(data.events.map(evento => evento.category))]
         console.log(this.checkboxes)
